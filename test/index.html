@@ -1,0 +1,57 @@
+<html>
+  <head>
+    <title>js-blueprint tests</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="../vendor/mocha.css" />
+
+    <!-- Requirements -->
+    <script src="../vendor/require.js"></script>
+
+    <script>
+      require.config({
+        baseUrl : window.location.pathname.split('test')[0],
+        urlArgs : 'h=' + (new Date()).getTime(),
+        paths : {
+          jquery    : 'vendor/jquery',
+          mocha     : 'vendor/mocha',
+          chai      : 'vendor/chai',
+          sinon     : 'vendor/sinon',
+          'sinon-chai' : 'vendor/sinon-chai',
+          preload   : 'vendor/preload'
+        }
+      });
+
+      require(['mocha'], function () {
+        mocha.setup('bdd');
+      });
+
+      require(['chai', 'sinon-chai'], function (chai, sinonChai) {
+        chai.use(sinonChai);
+        window.expect = chai.expect;
+      });
+
+      require([
+        'mocha',
+
+        'test/support/extend',
+        'test/support/inherit',
+
+        'test/core/statefull_object',
+        'test/core/route',
+        'test/core/router',
+        // 'test/loader',
+        'test/component/menu/item',
+        'test/component/menu'
+      ], function () {
+        mocha.run();
+      });
+    </script>
+  </head>
+
+  <body>
+    <div id="mocha"></div>
+  </body>
+</html>
+
