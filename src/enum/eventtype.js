@@ -3,7 +3,7 @@ define(function () {
     ACTIVATE          : 'activate',
     ADD_ITEM          : 'add_item',
     CHANGE_STATE_SUPPORT : 'changestatesupport',
-    CHANGE_STATE      : 'chagnestate',
+    CHANGE_STATE      : 'changestate',
     CHILD_ADDED       : 'childadded',
     ADD_CHILD         : 'addchild',
     ADD_ROUTE         : 'addroute',
